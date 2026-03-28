@@ -5,6 +5,10 @@ import { validateToken } from '../lib/nike';
 
 const NIKE_TOKEN_COMMAND = `JSON.parse(localStorage.getItem('oidc.user:https://accounts.nike.com:4fd2d5e7db76e0f85a6bb56721bd51df')).access_token`;
 
+function isMobile(): boolean {
+  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+}
+
 export default function Landing() {
   const navigate = useNavigate();
   const { setNikeToken } = useStore();
@@ -49,13 +53,24 @@ export default function Landing() {
           <button onClick={() => setStep('main')} className="guide-back">← 돌아가기</button>
           <h2 className="guide-title">Nike 토큰 가져오기</h2>
 
+          {isMobile() && (
+            <div className="mobile-notice">
+              <strong>PC에서 접속을 권장합니다.</strong>
+              <br />
+              모바일에서는 개발자 도구를 열 수 없어 토큰 추출이 어렵습니다.
+              <br />
+              PC에서 토큰을 복사한 뒤, 본인에게 전달하여 아래 입력창에 붙여넣을 수 있습니다.
+            </div>
+          )}
+
           <div className="guide-steps">
             <div className="guide-step">
               <div className="step-number">1</div>
               <div className="step-text">
-                <a href="https://www.nike.com/kr/member/profile" target="_blank" rel="noreferrer" className="step-link">
+                <a href="https://www.nike.com/kr" target="_blank" rel="noreferrer" className="step-link">
                   nike.com 로그인 →
                 </a>
+                <span className="step-sub">(로그인 후 아무 페이지에서 진행 가능)</span>
               </div>
             </div>
 

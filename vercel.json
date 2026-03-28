@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/nike-api/:path*",
+      "destination": "https://api.nike.com/:path*"
+    },
+    {
+      "source": "/((?!nike-api).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
