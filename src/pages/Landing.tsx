@@ -31,7 +31,7 @@ export default function Landing() {
         return;
       }
       setNikeToken(cleanToken);
-      navigate('/universe');
+      navigate('/map');
     } catch {
       setError('연결에 실패했습니다. 다시 시도해주세요.');
     } finally {
@@ -130,10 +130,10 @@ export default function Landing() {
       <div className="landing-content">
         <h1 className="landing-title">
           My Running
-          <span className="landing-highlight"> Universe</span>
+          <span className="landing-highlight"> Map</span>
         </h1>
         <p className="landing-subtitle">
-          내가 뛴 지구, 우주에서 바라보다
+          내가 뛴 길, 지도 위에 빛나다
         </p>
         <p className="landing-desc">
           러닝 GPS 경로가 지도 위에 빛나는 궤적으로 표시됩니다.

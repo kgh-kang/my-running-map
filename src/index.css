@@ -331,15 +331,63 @@ body {
   max-width: 400px;
 }
 
-.loading-globe {
-  font-size: 4rem;
-  animation: float 2s ease-in-out infinite;
-  margin-bottom: 1.5rem;
+/* Running Animation */
+.loading-runner {
+  position: relative;
+  width: 200px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
 }
 
-@keyframes float {
+.runner-figure {
+  position: absolute;
+  font-size: 2.5rem;
+  bottom: 0;
+  animation: runner-move 2.5s ease-in-out infinite, runner-bounce 0.4s ease-in-out infinite;
+}
+
+@keyframes runner-move {
+  0% { left: 0; }
+  50% { left: calc(100% - 40px); }
+  100% { left: 0; }
+}
+
+@keyframes runner-bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-6px); }
+}
+
+.runner-track {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.runner-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00bfff;
+  opacity: 0.3;
+  animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+.runner-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.runner-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; box-shadow: 0 0 6px #00bfff; }
 }
 
 .loading-title {
@@ -378,8 +426,8 @@ body {
   color: #555577;
 }
 
-/* Universe Page - Sidebar Layout */
-.universe-page {
+/* Map Page - Sidebar Layout */
+.map-page {
   display: flex;
   height: 100vh;
   background: #0a0a1a;
@@ -406,7 +454,7 @@ body {
   flex-shrink: 0;
 }
 
-.universe-title {
+.map-title {
   font-size: 1.2rem;
   font-weight: 700;
   background: linear-gradient(135deg, #00bfff, #00ff88);
@@ -718,6 +766,12 @@ body {
   color: #7788aa;
 }
 
+.activity-type {
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
 /* Tickets Page */
 .tickets-page {
   min-height: 100vh;
@@ -781,6 +835,122 @@ body {
 .menu-btn:hover {
   border-color: #00bfff;
   color: #00bfff;
+}
+
+/* Boarding Pass Button */
+.boarding-pass-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: calc(100% - 2.4rem);
+  margin: 0.8rem 1.2rem;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(135deg, #0d1040, #1a1050);
+  border: 1px solid #2a2a5a;
+  border-radius: 10px;
+  color: #e0e0f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.boarding-pass-btn:hover {
+  border-color: #00bfff;
+  background: linear-gradient(135deg, #101050, #221660);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 191, 255, 0.15);
+}
+
+.boarding-pass-icon {
+  font-size: 1.1rem;
+}
+
+/* Refresh Notice */
+.refresh-notice {
+  margin: 0.5rem 1.2rem;
+  padding: 0.6rem 0.8rem;
+  background: #0f0f2a;
+  border: 1px solid #1a1a3a;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.refresh-notice-text {
+  font-size: 0.72rem;
+  color: #555577;
+  margin-bottom: 0.2rem;
+}
+
+.refresh-notice-link {
+  background: none;
+  border: none;
+  color: #00bfff;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.refresh-notice-link:hover {
+  color: #00ff88;
+}
+
+/* Refresh Guide */
+.refresh-guide {
+  margin: 0.5rem 1.2rem;
+  padding: 0.8rem;
+  background: #101035;
+  border: 1px solid #00bfff33;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.refresh-guide-text {
+  font-size: 0.78rem;
+  color: #aaaacc;
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+.refresh-guide-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.refresh-guide-btn {
+  padding: 0.4rem 0.8rem;
+  background: linear-gradient(135deg, #00bfff, #00ff88);
+  color: #0a0a1a;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.refresh-guide-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3);
+}
+
+.refresh-guide-cancel {
+  padding: 0.4rem 0.8rem;
+  background: none;
+  border: 1px solid #333;
+  color: #8888bb;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.refresh-guide-cancel:hover {
+  border-color: #666;
+  color: #aaaacc;
 }
 
 /* Running Tickets */

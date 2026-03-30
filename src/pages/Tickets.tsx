@@ -9,7 +9,7 @@ export default function Tickets() {
   return (
     <div className="tickets-page">
       <div className="tickets-page-header">
-        <button onClick={() => navigate('/universe')} className="back-btn">
+        <button onClick={() => navigate('/map')} className="back-btn">
           ← 지도로 돌아가기
         </button>
         <h2 className="tickets-page-title">Boarding Passes</h2>

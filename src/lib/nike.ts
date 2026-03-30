@@ -94,11 +94,18 @@ export async function fetchNikeActivityDetail(
   return res.json();
 }
 
-function speedToColor(avgSpeedKmh: number): string {
-  if (avgSpeedKmh >= 14) return '#00bfff';
-  if (avgSpeedKmh >= 10) return '#00ff88';
-  if (avgSpeedKmh >= 7) return '#ffaa00';
-  return '#ff4444';
+export function speedToColor(avgSpeedKmh: number): string {
+  if (avgSpeedKmh >= 14) return '#ff4444';
+  if (avgSpeedKmh >= 10) return '#ffaa00';
+  if (avgSpeedKmh >= 7) return '#00ff88';
+  return '#00bfff';
+}
+
+export function speedToLabel(avgSpeedKmh: number): string {
+  if (avgSpeedKmh >= 14) return '스피드';
+  if (avgSpeedKmh >= 10) return '빠른 러닝';
+  if (avgSpeedKmh >= 7) return '편한 러닝';
+  return '조깅';
 }
 
 export async function nikeActivityToPath(

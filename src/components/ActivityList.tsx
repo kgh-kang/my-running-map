@@ -1,6 +1,7 @@
 import type { RunningPath } from '../types/strava';
 import { useStore } from '../store/useStore';
 import { getLocationName } from '../utils/locationName';
+import { speedToLabel } from '../lib/nike';
 
 interface Props {
   paths: RunningPath[];
@@ -44,6 +45,9 @@ export default function ActivityList({ paths }: Props) {
                 <div className="activity-meta">
                   {new Date(path.date).toLocaleDateString('ko-KR')} · {(path.distance / 1000).toFixed(1)}km
                   {loc && <span className="activity-loc"> · {loc}</span>}
+                </div>
+                <div className="activity-type" style={{ color: path.color }}>
+                  {speedToLabel(path.avgSpeed * 3.6)}
                 </div>
               </div>
             </button>

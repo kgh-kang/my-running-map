@@ -60,7 +60,7 @@ export default function RunningTickets({ paths }: Props) {
       <div className="total-stats-ticket">
         <div className="ticket-perforated" />
         <div className="ticket-left">
-          <div className="ticket-airline">MY RUNNING UNIVERSE</div>
+          <div className="ticket-airline">MY RUNNING MAP</div>
           <div className="ticket-label">RUNNING SINCE</div>
           <div className="ticket-date">{formatDate(firstDate)}</div>
           <div className="ticket-label" style={{ marginTop: '0.8rem' }}>TOTAL RUNS</div>
@@ -80,7 +80,7 @@ export default function RunningTickets({ paths }: Props) {
           <div key={t.location} className="ticket-card">
             <div className="ticket-perforated" />
             <div className="ticket-left">
-              <div className="ticket-airline">MY RUNNING UNIVERSE</div>
+              <div className="ticket-airline">MY RUNNING MAP</div>
               <div className="ticket-city">{t.location}</div>
               <div className="ticket-label">
                 {formatDate(t.firstDate)}

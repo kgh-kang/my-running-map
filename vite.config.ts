@@ -9,6 +9,7 @@ export default defineConfig({
       '/nike-api': {
         target: 'https://api.nike.com',
         changeOrigin: true,
+        secure: false,
         rewrite: (path) => path.replace(/^\/nike-api/, ''),
       },
     },

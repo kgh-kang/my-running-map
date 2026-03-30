@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Landing from './pages/Landing';
-import Universe from './pages/Universe';
+import RunningMap from './pages/RunningMap';
 import Tickets from './pages/Tickets';
 
 export default function App() {
@@ -8,7 +8,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/universe" element={<Universe />} />
+        <Route path="/map" element={<RunningMap />} />
         <Route path="/tickets" element={<Tickets />} />
       </Routes>
     </BrowserRouter>
